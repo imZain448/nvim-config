@@ -4,6 +4,18 @@ return {
   -- example of importing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
-  -- { import = "astrocommunity.colorscheme.catppuccin" },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.git.diffview-nvim"},
+  { import = "astrocommunity.diagnostics.trouble-nvim"},
+  { import = "astrocommunity.motion.hop-nvim"},
+  { import = "astrocommunity.motion.nvim-spider"},
+  -- { import = "astrocommunity.split-and-window.minimap.nvim"},
+  { import = "astrocommunity.split-and-window.edgy-nvim"},
+  -- { import = "astrocommunity.workflow.bad-practices.nvim"},
+  { import = "astrocommunity.programming-language-support.csv-vim"},
+  -- { import = "astrocommunity.workflow.hard-time.nvim"},
+  { import = "astrocommunity.colorscheme.everforest"},
+  { import = "astrocommunity.colorscheme.nightfox-nvim"},
+  { import = "astrocommunity.programming-language-support.nvim-jqx"}
 }

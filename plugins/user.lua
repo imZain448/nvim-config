@@ -78,5 +78,19 @@ return {
         vim.cmd("let g:minimap_auto_start = 1")
         vim.cmd("let g:minimap_auto_start_win_enter = 1")
     end,
-}
+},
+  "smoka7/multicursors.nvim",
+  lazy=false,
+  -- event = "BufEnter",
+  dependencies = { "smoka7/hydra.nvim" },
+  opts = {},
+  cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+  keys = {
+    {
+      mode = { "v", "n" },
+      "<Leader><leader>m",
+      "<cmd>MCstart<cr>",
+      desc = "Create a selection for word under the cursor",
+    },
+  },
 }

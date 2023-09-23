@@ -50,9 +50,23 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+
+-- trouble  keymaps Lua
+vim.keymap.set("n", "<leader>xx", function() require("trouble").open() end)
+vim.keymap.set("n", "<leader>xw", function() require("trouble").open("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").open("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").open("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
+vim.keymap.set('n', 'xt', '<cmd>TodoTrouble cwd $pwd<CR>');
+
+
+ -- TODO: add key bindings for lsp
+--
+--
+-- vim.keymap.set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
 return {
   -- first key is the mode
   n = {

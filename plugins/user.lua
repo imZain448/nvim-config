@@ -12,21 +12,38 @@ return {
   {
     "xiyaowong/transparent.nvim",
     event = "BufEnter",
-    config = function ()
-      require("transparent").setup({ -- Optional, you don't have to run setup.
-    groups = { -- table: default groups
-      'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-      'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-      'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-      'SignColumn', 'CursorLineNr', 'EndOfBuffer',
-    },
-    extra_groups = {}, -- table: additional groups that should be cleared
-    exclude_groups = {}, -- table: groups you don't want to clear
-    })
-    end
-
+    config = function()
+      require("transparent").setup { -- Optional, you don't have to run setup.
+        groups = { -- table: default groups
+          "Normal",
+          "NormalNC",
+          "Comment",
+          "Constant",
+          "Special",
+          "Identifier",
+          "Statement",
+          "PreProc",
+          "Type",
+          "Underlined",
+          "Todo",
+          "String",
+          "Function",
+          "Conditional",
+          "Repeat",
+          "Operator",
+          "Structure",
+          "LineNr",
+          "NonText",
+          "SignColumn",
+          "CursorLineNr",
+          "EndOfBuffer",
+        },
+        extra_groups = {}, -- table: additional groups that should be cleared
+        exclude_groups = {}, -- table: groups you don't want to clear
+      }
+    end,
   },
-    {
+  {
     "folke/styler.nvim",
     event = "VeryLazy",
     config = function()
@@ -39,29 +56,30 @@ return {
     end,
   },
   {
-  "folke/todo-comments.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
     },
-  event = "BufEnter"
+    event = "BufEnter",
   },
   {
- "folke/trouble.nvim",
-   dependencies = { "nvim-tree/nvim-web-devicons" },
-     opts = {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
     },
-    event = "BufEnter"
+    event = "BufEnter",
   },
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.3',
--- or                              , branch = '0.1.x',
-      dependencies = { 'nvim-lua/plenary.nvim' }
+    "nvim-telescope/telescope.nvim",
+    -- or                              , branch = '0.1.x',
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "BufEnter",
   },
   {
     "folke/tokyonight.nvim",
@@ -89,27 +107,26 @@ return {
   {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
-    config = function()
-      require("gruvbox").setup()
-    end,
+    config = function() require("gruvbox").setup() end,
   },
   {
-        "wfxr/minimap.vim",
+    "wfxr/minimap.vim",
     build = "cargo install --locked code-minimap",
     lazy = false,
     cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
     init = function()
-        vim.cmd("let g:minimap_width = 10")
-        vim.cmd("let g:minimap_auto_start = 1")
-        vim.cmd("let g:minimap_auto_start_win_enter = 1")
+      vim.cmd "let g:minimap_width = 10"
+      vim.cmd "let g:minimap_auto_start = 1"
+      vim.cmd "let g:minimap_auto_start_win_enter = 1"
     end,
-},
+  },
   "smoka7/multicursors.nvim",
-  lazy=false,
+  lazy = false,
   -- event = "BufEnter",
   dependencies = { "smoka7/hydra.nvim" },
   opts = {},
-  cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+  cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+  cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
   keys = {
     {
       mode = { "v", "n" },

@@ -51,6 +51,9 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       "pyright",
+      'tsserver',
+      'rust_analyzer',
+      'lua_ls'
       -- "typscript-language-server",
     },
   },

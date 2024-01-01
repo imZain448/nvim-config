@@ -1,5 +1,6 @@
 return {
   -- Configure AstroNvim updates
+
   updater = {
     remote = "origin", -- remote to use
     channel = "stable", -- "stable" or "nightly"
@@ -16,10 +17,32 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
-
+  -- icons
+  icons = {
+    VimIcon = "",
+    ScrollText = "",
+    GitBranch = "",
+    GitAdd = "",
+    GitChange = "",
+    GitDelete = "",
+  },
+  -- seperators for heirline
+  heirline = {
+    -- define the separators between each section
+    separators = {
+      left = { "", '' }, -- separator for the left side of the statusline
+      right = { " ", "" }, -- separator for the right side of the statusline
+      tab = { "", '' },
+    },
+    attributes = {
+      buffer_active = { bold = true, italic = true, bg = '#d0b7eb' , fg = '#01050d'},
+    }
+  },
   -- Set colorscheme to use
   colorscheme = "tokyonight-night",
-
+  plugins = {
+    require('user.plugins.heirline')
+  },
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,

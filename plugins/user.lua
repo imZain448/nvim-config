@@ -120,19 +120,45 @@ return {
       vim.cmd "let g:minimap_auto_start_win_enter = 1"
     end,
   },
-  "smoka7/multicursors.nvim",
-  lazy = false,
-  -- event = "BufEnter",
-  dependencies = { "smoka7/hydra.nvim" },
-  opts = {},
-  cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-  cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-  keys = {
-    {
-      mode = { "v", "n" },
-      "<Leader><leader>m",
-      "<cmd>MCstart<cr>",
-      desc = "Create a selection for word under the cursor",
+  {
+    "smoka7/multicursors.nvim",
+    lazy = false,
+    -- event = "BufEnter",
+    dependencies = { "smoka7/hydra.nvim" },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<Leader><leader>m",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for word under the cursor",
+      },
     },
+  },
+  {
+    'kkoomen/vim-doge',
+    name= 'doge',
+    even = 'BufEnter',
+    lazy = false,
+    run = ':call doge#install()',
+    keys = {
+      mode = {'v' , 'n'},
+      '<leader><leader>pd',
+      ':call doge#run_parser()'
+    },
+      -- config = function()
+      --   require("astronvim.user.plugins.config.doge").setup()
+      -- end,
+      cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+      disable = false,
+  },
+  {
+      "danymat/neogen",
+
+      cmd = { "Neogen" },
+      module = "neogen",
+      disable = false,
   },
 }

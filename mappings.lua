@@ -61,6 +61,10 @@ vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") e
 vim.keymap.set('n', 'xt', '<cmd>TodoTrouble cwd $pwd<CR>');
 
 
+-- doge document generator
+-- vim.keymap.set('n' , '<leader>vd' , function() require('doge').open('doge-generate') end)
+
+
  -- TODO: add key bindings for lsp
 --
 --

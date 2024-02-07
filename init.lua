@@ -42,7 +42,7 @@ return {
   colorscheme = "tokyonight-night",
   plugins = {
     require('user.plugins.heirline'),
-    require('user.plugins.obsidian')
+    require('user.plugins.obsidian'),
   },
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {

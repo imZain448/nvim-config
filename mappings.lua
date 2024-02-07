@@ -64,6 +64,8 @@ vim.keymap.set('n', 'xt', '<cmd>TodoTrouble cwd $pwd<CR>');
 -- doge document generator
 -- vim.keymap.set('n' , '<leader>vd' , function() require('doge').open('doge-generate') end)
 
+-- keybinding for noice dismiss notification
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "dismiss all notifications"})
 
  -- TODO: add key bindings for lsp
 --
@@ -85,6 +87,22 @@ return {
     --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
     --   desc = "Previous buffer",
     -- },
+    -- mapping for chatgpt
+    ["<leader>A"] = {name = "chatgpt"},
+    ["<leader>Ac"] = { "<cmd>chatgpt<cr>",desc = "chatgpt"  },
+    ["<leader>Ae"] = { "<cmd>chatgpteditwithinstruction<cr>",desc = "edit with instruction" },
+    ["<leader>Ag"] = { "<cmd>chatgptrun grammar_correction<cr>",desc = "grammar correction" },
+    ["<leader>At"] = { "<cmd>chatgptrun translate<cr>",desc = "translate" },
+    ["<leader>Ak"] = { "<cmd>chatgptrun keywords<cr>",desc = "keywords" },
+    ["<leader>Ad"] = { "<cmd>chatgptrun docstring<cr>",desc = "docstring" },
+    ["<leader>Aa"] = { "<cmd>chatgptrun add_tests<cr>",desc = "add tests" },
+    ["<leader>Ao"] = { "<cmd>chatgptrun optimize_code<cr>",desc = "optimize code" },
+    ["<leader>As"] = { "<cmd>chatgptrun summarize<cr>",desc = "summarize" },
+    ["<leader>Af"] = { "<cmd>chatgptrun fix_bugs<cr>",desc = "fix bugs" },
+    ["<leader>Ax"] = { "<cmd>chatgptrun explain_code<cr>",desc = "explain code" },
+    ["<leader>Ar"] = { "<cmd>chatgptrun roxygen_edit<cr>",desc = "roxygen edit" },
+    ["<leader>Al"] = { "<cmd>chatgptrun code_readability_analysis<cr>",desc = "code readability analysis" },
+
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -105,4 +123,23 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  v = {
+    -- mapping for chatGPT
+    ["<leader>A"] = {name = "chatGPT"},
+    ["<leader>Ac"] = { "<cmd>ChatGPT<CR>",desc = "ChatGPT"  },
+    ["<leader>Ae"] = { "<cmd>ChatGPTEditWithInstruction<CR>",desc = "Edit with instruction" },
+    ["<leader>Ag"] = { "<cmd>ChatGPTRun grammar_correction<CR>",desc = "Grammar Correction" },
+    ["<leader>At"] = { "<cmd>ChatGPTRun translate<CR>",desc = "Translate" },
+    ["<leader>Ak"] = { "<cmd>ChatGPTRun keywords<CR>",desc = "Keywords" },
+    ["<leader>Ad"] = { "<cmd>ChatGPTRun docstring<CR>",desc = "Docstring" },
+    ["<leader>Aa"] = { "<cmd>ChatGPTRun add_tests<CR>",desc = "Add Tests" },
+    ["<leader>Ao"] = { "<cmd>ChatGPTRun optimize_code<CR>",desc = "Optimize Code" },
+    ["<leader>As"] = { "<cmd>ChatGPTRun summarize<CR>",desc = "Summarize" },
+    ["<leader>Af"] = { "<cmd>ChatGPTRun fix_bugs<CR>",desc = "Fix Bugs" },
+    ["<leader>Ax"] = { "<cmd>ChatGPTRun explain_code<CR>",desc = "Explain Code" },
+    ["<leader>Ar"] = { "<cmd>ChatGPTRun roxygen_edit<CR>",desc = "Roxygen Edit" },
+    ["<leader>Al"] = { "<cmd>ChatGPTRun code_readability_analysis<CR>",desc = "Code Readability Analysis" },
+
+
+  }
 }

@@ -11,6 +11,15 @@ return {
   -- },
   -- lazy.nvim
   {
+    'smoka7/hop.nvim',
+    event = "BufEnter",
+    version = "*",
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
@@ -241,7 +250,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "BufEnter",
   },
-  -- tokyonight theme
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -275,17 +283,17 @@ return {
     lazy = false,
     config = function() require("gruvbox").setup() end,
   },
-  {
-    "wfxr/minimap.vim",
-    build = "cargo install --locked code-minimap",
-    lazy = false,
-    cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
-    init = function()
-      vim.cmd "let g:minimap_width = 10"
-      vim.cmd "let g:minimap_auto_start = 1"
-      vim.cmd "let g:minimap_auto_start_win_enter = 1"
-    end,
-  },
+  -- {
+  --   "wfxr/minimap.vim",
+  --   build = "cargo install --locked code-minimap",
+  --   lazy = false,
+  --   cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
+  --   init = function()
+  --     vim.cmd "let g:minimap_width = 10"
+  --     vim.cmd "let g:minimap_auto_start = 1"
+  --     vim.cmd "let g:minimap_auto_start_win_enter = 1"
+  --   end,
+  -- },
   {
     "smoka7/multicursors.nvim",
     lazy = false,

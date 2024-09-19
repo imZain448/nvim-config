@@ -39,7 +39,7 @@ return {
     }
   },
   -- Set colorscheme to use
-  colorscheme = "tokyonight-night",
+  colorscheme = "catppuccin-mocha",
   plugins = {
     require('user.plugins.heirline'),
     require('user.plugins.obsidian'),

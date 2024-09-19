@@ -60,6 +60,12 @@ vim.keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") 
 vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
 vim.keymap.set('n', 'xt', '<cmd>TodoTrouble cwd $pwd<CR>');
 
+-- INFO: key bindings for hop.nvim
+vim.keymap.set("n", "<leader><leader>s", "<cmd>HopWord<CR>");
+vim.keymap.set("n", "<leader><leader>/", "<cmd>HopPattern<CR>");
+vim.keymap.set("n", "<leader><leader>l", "<cmd>HopLine<CR>");
+vim.keymap.set("n", "<leader><leader>v", "<cmd>HopVertical<CR>");
+vim.keymap.set("n", "<leader><leader>c", "<cmd>HopChar1<CR>");
 
 -- doge document generator
 -- vim.keymap.set('n' , '<leader>vd' , function() require('doge').open('doge-generate') end)

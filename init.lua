@@ -31,9 +31,9 @@ return {
   heirline = {
     -- define the separators between each section
     separators = {
-      left = { "", "  " }, -- separator for the left side of the statusline
-      right = { "  ", "" }, -- separator for the right side of the statusline
-      tab = { "", "" },
+      left = { "", "  " }, -- separator for the left side of the statusline
+      right = { "  ", "" }, -- separator for the right side of the statusline
+      tab = { "", "" },
     },
     colors = {
       normal = "#003049",

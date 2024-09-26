@@ -16,21 +16,17 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
+vim.keymap.set("n", "<leader>vwm", function() require("vim-with-me").StartVimWithMe() end)
+vim.keymap.set("n", "<leader>svwm", function() require("vim-with-me").StopVimWithMe() end)
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -47,33 +43,32 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>")
+vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 -- trouble  keymaps Lua
 vim.keymap.set("n", "<leader>xx", function() require("trouble").open() end)
-vim.keymap.set("n", "<leader>xw", function() require("trouble").open("workspace_diagnostics") end)
-vim.keymap.set("n", "<leader>xd", function() require("trouble").open("document_diagnostics") end)
-vim.keymap.set("n", "<leader>xq", function() require("trouble").open("quickfix") end)
-vim.keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") end)
-vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
-vim.keymap.set('n', 'xt', '<cmd>TodoTrouble cwd $pwd<CR>');
+vim.keymap.set("n", "<leader>xw", function() require("trouble").open "workspace_diagnostics" end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").open "document_diagnostics" end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").open "quickfix" end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").open "loclist" end)
+vim.keymap.set("n", "gR", function() require("trouble").open "lsp_references" end)
+vim.keymap.set("n", "xt", "<cmd>TodoTrouble cwd $pwd<CR>")
 
 -- INFO: key bindings for hop.nvim
-vim.keymap.set("n", "<leader><leader>s", "<cmd>HopWord<CR>");
-vim.keymap.set("n", "<leader><leader>/", "<cmd>HopPattern<CR>");
-vim.keymap.set("n", "<leader><leader>l", "<cmd>HopLine<CR>");
-vim.keymap.set("n", "<leader><leader>v", "<cmd>HopVertical<CR>");
-vim.keymap.set("n", "<leader><leader>c", "<cmd>HopChar1<CR>");
+vim.keymap.set("n", "<leader><leader>s", "<cmd>HopWord<CR>")
+vim.keymap.set("n", "<leader><leader>/", "<cmd>HopPattern<CR>")
+vim.keymap.set("n", "<leader><leader>l", "<cmd>HopLine<CR>")
+vim.keymap.set("n", "<leader><leader>v", "<cmd>HopVertical<CR>")
+vim.keymap.set("n", "<leader><leader>c", "<cmd>HopChar1<CR>")
 
 -- doge document generator
 -- vim.keymap.set('n' , '<leader>vd' , function() require('doge').open('doge-generate') end)
 
 -- keybinding for noice dismiss notification
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "dismiss all notifications"})
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "dismiss all notifications" })
 
- -- TODO: add key bindings for lsp
+-- TODO: add key bindings for lsp
 --
 --
 -- vim.keymap.set("n", "<leader><leader>", function()
@@ -94,21 +89,20 @@ return {
     --   desc = "Previous buffer",
     -- },
     -- mapping for chatgpt
-    ["<leader>A"] = {name = "chatgpt"},
-    ["<leader>Ac"] = { "<cmd>chatgpt<cr>",desc = "chatgpt"  },
-    ["<leader>Ae"] = { "<cmd>chatgpteditwithinstruction<cr>",desc = "edit with instruction" },
-    ["<leader>Ag"] = { "<cmd>chatgptrun grammar_correction<cr>",desc = "grammar correction" },
-    ["<leader>At"] = { "<cmd>chatgptrun translate<cr>",desc = "translate" },
-    ["<leader>Ak"] = { "<cmd>chatgptrun keywords<cr>",desc = "keywords" },
-    ["<leader>Ad"] = { "<cmd>chatgptrun docstring<cr>",desc = "docstring" },
-    ["<leader>Aa"] = { "<cmd>chatgptrun add_tests<cr>",desc = "add tests" },
-    ["<leader>Ao"] = { "<cmd>chatgptrun optimize_code<cr>",desc = "optimize code" },
-    ["<leader>As"] = { "<cmd>chatgptrun summarize<cr>",desc = "summarize" },
-    ["<leader>Af"] = { "<cmd>chatgptrun fix_bugs<cr>",desc = "fix bugs" },
-    ["<leader>Ax"] = { "<cmd>chatgptrun explain_code<cr>",desc = "explain code" },
-    ["<leader>Ar"] = { "<cmd>chatgptrun roxygen_edit<cr>",desc = "roxygen edit" },
-    ["<leader>Al"] = { "<cmd>chatgptrun code_readability_analysis<cr>",desc = "code readability analysis" },
-
+    ["<leader>A"] = { name = "chatgpt" },
+    ["<leader>Ac"] = { "<cmd>chatgpt<cr>", desc = "chatgpt" },
+    ["<leader>Ae"] = { "<cmd>chatgpteditwithinstruction<cr>", desc = "edit with instruction" },
+    ["<leader>Ag"] = { "<cmd>chatgptrun grammar_correction<cr>", desc = "grammar correction" },
+    ["<leader>At"] = { "<cmd>chatgptrun translate<cr>", desc = "translate" },
+    ["<leader>Ak"] = { "<cmd>chatgptrun keywords<cr>", desc = "keywords" },
+    ["<leader>Ad"] = { "<cmd>chatgptrun docstring<cr>", desc = "docstring" },
+    ["<leader>Aa"] = { "<cmd>chatgptrun add_tests<cr>", desc = "add tests" },
+    ["<leader>Ao"] = { "<cmd>chatgptrun optimize_code<cr>", desc = "optimize code" },
+    ["<leader>As"] = { "<cmd>chatgptrun summarize<cr>", desc = "summarize" },
+    ["<leader>Af"] = { "<cmd>chatgptrun fix_bugs<cr>", desc = "fix bugs" },
+    ["<leader>Ax"] = { "<cmd>chatgptrun explain_code<cr>", desc = "explain code" },
+    ["<leader>Ar"] = { "<cmd>chatgptrun roxygen_edit<cr>", desc = "roxygen edit" },
+    ["<leader>Al"] = { "<cmd>chatgptrun code_readability_analysis<cr>", desc = "code readability analysis" },
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -131,21 +125,19 @@ return {
   },
   v = {
     -- mapping for chatGPT
-    ["<leader>A"] = {name = "chatGPT"},
-    ["<leader>Ac"] = { "<cmd>ChatGPT<CR>",desc = "ChatGPT"  },
-    ["<leader>Ae"] = { "<cmd>ChatGPTEditWithInstruction<CR>",desc = "Edit with instruction" },
-    ["<leader>Ag"] = { "<cmd>ChatGPTRun grammar_correction<CR>",desc = "Grammar Correction" },
-    ["<leader>At"] = { "<cmd>ChatGPTRun translate<CR>",desc = "Translate" },
-    ["<leader>Ak"] = { "<cmd>ChatGPTRun keywords<CR>",desc = "Keywords" },
-    ["<leader>Ad"] = { "<cmd>ChatGPTRun docstring<CR>",desc = "Docstring" },
-    ["<leader>Aa"] = { "<cmd>ChatGPTRun add_tests<CR>",desc = "Add Tests" },
-    ["<leader>Ao"] = { "<cmd>ChatGPTRun optimize_code<CR>",desc = "Optimize Code" },
-    ["<leader>As"] = { "<cmd>ChatGPTRun summarize<CR>",desc = "Summarize" },
-    ["<leader>Af"] = { "<cmd>ChatGPTRun fix_bugs<CR>",desc = "Fix Bugs" },
-    ["<leader>Ax"] = { "<cmd>ChatGPTRun explain_code<CR>",desc = "Explain Code" },
-    ["<leader>Ar"] = { "<cmd>ChatGPTRun roxygen_edit<CR>",desc = "Roxygen Edit" },
-    ["<leader>Al"] = { "<cmd>ChatGPTRun code_readability_analysis<CR>",desc = "Code Readability Analysis" },
-
-
-  }
+    ["<leader>A"] = { name = "chatGPT" },
+    ["<leader>Ac"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+    ["<leader>Ae"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
+    ["<leader>Ag"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
+    ["<leader>At"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
+    ["<leader>Ak"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
+    ["<leader>Ad"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
+    ["<leader>Aa"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
+    ["<leader>Ao"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
+    ["<leader>As"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
+    ["<leader>Af"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
+    ["<leader>Ax"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
+    ["<leader>Ar"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
+    ["<leader>Al"] = { "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "Code Readability Analysis" },
+  },
 }

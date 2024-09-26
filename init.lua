@@ -17,6 +17,7 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
+  colorscheme = "catppuccin-mocha",
   -- icons
   icons = {
     VimIcon = "",
@@ -30,19 +31,26 @@ return {
   heirline = {
     -- define the separators between each section
     separators = {
-      left = { "", '' }, -- separator for the left side of the statusline
-      right = { " ", "" }, -- separator for the right side of the statusline
-      tab = { "", '' },
+      left = { "", "  " }, -- separator for the left side of the statusline
+      right = { "  ", "" }, -- separator for the right side of the statusline
+      tab = { "", "" },
+    },
+    colors = {
+      normal = "#003049",
+      insert = "#0c7c59",
+      visual = "#753bbd",
+      command = "#e03c31",
+      replace = "#ff7540",
+      terminal = "#f72585",
     },
     attributes = {
-      buffer_active = { bold = true, italic = true, bg = '#d0b7eb' , fg = '#01050d'},
-    }
+      buffer_active = { bold = true, italic = true, bg = "#d0b7eb", fg = "#01050d" },
+    },
   },
   -- Set colorscheme to use
-  colorscheme = "catppuccin-mocha",
   plugins = {
-    require('user.plugins.heirline'),
-    require('user.plugins.obsidian'),
+    require "user.plugins.heirline",
+    require "user.plugins.obsidian",
   },
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -75,9 +83,9 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       "pyright",
-      'tsserver',
-      'rust_analyzer',
-      'lua_ls'
+      "tsserver",
+      "rust_analyzer",
+      "lua_ls",
       -- "typscript-language-server",
     },
   },

@@ -11,13 +11,13 @@ return {
   -- },
   -- lazy.nvim
   {
-    'smoka7/hop.nvim',
+    "smoka7/hop.nvim",
     event = "BufEnter",
     version = "*",
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
+      require("hop").setup { keys = "etovxqpdygfblzhckisuran" }
+    end,
   },
   {
     "folke/noice.nvim",
@@ -34,7 +34,7 @@ return {
       "rcarriga/nvim-notify",
     },
     config = function()
-      require("noice").setup({
+      require("noice").setup {
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
           override = {
@@ -51,29 +51,34 @@ return {
           inc_rename = false, -- enables an input dialog for inc-rename.nvim
           lsp_doc_border = false, -- add a border to hover docs and signature help
         },
-      })
-    end
-
+      }
+    end,
   },
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
-      require("chatgpt").setup()
+      require("chatgpt").setup {
+        openai_params = {
+          model = "gpt-4o-mini",
+          temperature = 0.2,
+        },
+      }
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "folke/trouble.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
+      "nvim-telescope/telescope.nvim",
+    },
   },
   -- gitignore plugin
   {
     "wintermute-cell/gitignore.nvim",
+    event = "BufEnter",
     requires = {
-      "nvim-telescope/telescope.nvim" -- optional: for multi-select
-    }
+      "nvim-telescope/telescope.nvim", -- optional: for multi-select
+    },
   },
   -- transparent nvim
   {
@@ -105,7 +110,7 @@ return {
           "CursorLineNr",
           "EndOfBuffer",
         },
-        extra_groups = {'NormalFloat' , 'NeoTreeNormal', 'NeoTreeInactive','sidebars'}, -- table: additional groups that should be cleared
+        extra_groups = { "NormalFloat", "NeoTreeNormal", "NeoTreeInactive", "sidebars" }, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       }
     end,
@@ -162,7 +167,7 @@ return {
           info = { "DiagnosticInfo", "#2563EB" },
           hint = { "DiagnosticHint", "#10B981" },
           default = { "Identifier", "#7C3AED" },
-          test = { "Identifier", "#FF00FF" }
+          test = { "Identifier", "#FF00FF" },
         },
         search = {
           command = "rg",
@@ -178,7 +183,7 @@ return {
           pattern = [[\b(KEYWORDS):]], -- ripgrep regex
           -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
         },
-      }
+      },
     },
     event = "BufEnter",
   },
@@ -208,19 +213,19 @@ return {
           open_split = { "<c-x>" }, -- open buffer in new split
           open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
           open_tab = { "<c-t>" }, -- open buffer in new tab
-          jump_close = {"o"}, -- jump to the diagnostic and close the list
+          jump_close = { "o" }, -- jump to the diagnostic and close the list
           toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
           switch_severity = "s", -- switch "diagnostics" severity filter level to HINT / INFO / WARN / ERROR
           toggle_preview = "P", -- toggle auto_preview
           hover = "K", -- opens a small popup with the full multiline message
           preview = "p", -- preview the diagnostic location
           open_code_href = "c", -- if present, open a URI with more information about the diagnostic error
-          close_folds = {"zM", "zm"}, -- close all folds
-          open_folds = {"zR", "zr"}, -- open all folds
-          toggle_fold = {"zA", "za"}, -- toggle fold of current file
+          close_folds = { "zM", "zm" }, -- close all folds
+          open_folds = { "zR", "zr" }, -- open all folds
+          toggle_fold = { "zA", "za" }, -- toggle fold of current file
           previous = "k", -- previous item
-          next = "j" ,-- next item
-          help = "?" -- help menu
+          next = "j", -- next item
+          help = "?", -- help menu
         },
         multiline = true, -- render multi-line messages
         indent_lines = true, -- add an indent guide below the fold icons
@@ -229,8 +234,8 @@ return {
         auto_close = false, -- automatically close the list when you have no diagnostics
         auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
         auto_fold = false, -- automatically fold a file trouble list at creation
-        auto_jump = {"lsp_definitions"}, -- for the given modes, automatically jump if there is only a single result
-        include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions"  }, -- for the given modes, include the declaration of the current symbol in the results
+        auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
+        include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" }, -- for the given modes, include the declaration of the current symbol in the results
         signs = {
           -- icons / text used for a diagnostic
           error = "",
@@ -239,8 +244,8 @@ return {
           information = "",
           other = "",
         },
-        use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
-      }
+        use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
+      },
     },
     event = "BufEnter",
   },
@@ -273,10 +278,10 @@ return {
     lazy = false,
     name = "catppuccin",
     config = function()
-      require('catppuccin').setup({
-        transparent_background = true
-      })
-    end
+      require("catppuccin").setup {
+        transparent_background = true,
+      }
+    end,
   },
   {
     "ellisonleao/gruvbox.nvim",
@@ -312,27 +317,35 @@ return {
     },
   },
   {
-    'kkoomen/vim-doge',
-    name= 'doge',
-    even = 'BufEnter',
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {},
     lazy = false,
-    run = ':call doge#install()',
-    keys = {
-      mode = {'v' , 'n'},
-      '<leader><leader>pd',
-      ':call doge#run_parser()'
-    },
-      -- config = function()
-      --   require("astronvim.user.plugins.config.doge").setup()
-      -- end,
-      cmd = { "DogeGenerate", "DogeCreateDocStandard" },
-      disable = false,
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
   },
   {
-      "danymat/neogen",
+    "kkoomen/vim-doge",
+    name = "doge",
+    even = "BufEnter",
+    lazy = false,
+    run = ":call doge#install()",
+    keys = {
+      mode = { "v", "n" },
+      "<leader><leader>pd",
+      ":call doge#run_parser()",
+    },
+    -- config = function()
+    --   require("astronvim.user.plugins.config.doge").setup()
+    -- end,
+    cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+    disable = false,
+  },
+  {
+    "danymat/neogen",
 
-      cmd = { "Neogen" },
-      module = "neogen",
-      disable = false,
+    cmd = { "Neogen" },
+    module = "neogen",
+    disable = false,
   },
 }

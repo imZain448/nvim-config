@@ -14,7 +14,6 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
-  -- { import = "astrocommunity.editor-support.multicursors.nvhttps://preproduction.signzy.xyz/plexus/facematch/checklivenessim" },
   -- { import = "astrocommunity.git.diffview-nvim"},
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.motion.hop-nvim" },
